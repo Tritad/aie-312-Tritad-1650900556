@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLoud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0b0b0b;
+        }
+        .header {
+            background-color: #030303;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #C9C0BB;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .logo {
+            flex: 0 0 auto;
+        }
+        .logo img {
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+        }
+        .nav-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-container nav {
+            display: flex;
+            gap: 10px;
+        }
+        .nav-container a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-container a:hover {
+            background-color: #555;
+        }
+        .nav-container .active {
+            background-color: #fff;
+            color: #333;
+        }
+        .search-login {
+            display: flex;
+            align-items: center;
+        }
+        .search {
+            padding: 5px;
+            font-size: 1em;
+            border-radius: 4px;
+            border: none;
+            margin-right: 10px;
+            width: 200px; 
+            margin: 10;
+        }
+        .login-button {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .login-button:hover {
+            background-color: #ddd;
+        }
+        .title {
+            text-align: center;
+            padding: 475px 15px;
+            background: url('https://4kwallpapers.com/images/wallpapers/lisa-rockstar-8k-3840x2160-17450.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: scroll;
+            border-bottom: 1px solid #0c0c0c;
+            margin-bottom: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .title h1 {
+            margin: 0;
+            font-size: 7em;
+            color: #f0eeee;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .item {
+            flex: 1;
+            min-width: 220px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        
+        }
+        .item a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+
+        }
+        .item img {
+            width: 125%;
+            height: auto;
+        }
+        .item h3 {
+            margin: 10px;
+            font-size: 1.2em;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .item p {
+            margin: 10px;
+            color: #555;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEUAAAD///9VVVXx8fG2traqqqru7u7Dw8Nra2uXl5c7Ozvi4uLp6ekmJia+vr7IyMjV1dWxsbGFhYX5+fkVFRUkJCSfn59ubm7Nzc2MjIw4ODgcHBwvLy8QEBBZWVlOTk51dXVDQ0OSkpJISEh8fHy6cEmeAAAEPklEQVR4nO3aaXeiMBiGYSmoVXEfrXZxa///b5wRzZsFApKmzJk59/UNgkkexBCIvR4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPjfTMd3U3v/q9r/65Faxl+rPw5vlYUbVdW7W6IaOX8Umx9T1+ah1uvNkrulvX+t9r801fC8HCRiN5qWDthKoVuSqpJDsXlIKqTD7TE0XCFTNfXt/dLr5/rP90tdmrifGKmSofvhXJU8FZtPVQkLWenr7yphOd9Vbp/0CAmTZHH+GwmP6+reJMksekKnzm4Srmq6kxuDTqSESTruOOG2uh93az3ixEqoBqSuEo6qO6EjfsRPeD+um4TPVsu7/n6/v2SpuS8PTzgYzm8WeWLbdJfQ/LZWsvd1buxXd9j2Cc1BZdw3x7O0s4RGEnuq8Gn05xgjYc8e0rYdJfzUTZ7csokUTSIl7L0ZF2v1zDB6woU0uC8X6l/jIVJC48gk6yThh7RX6vQfU6c0RkLdYtJJwn59c05xjIS9L6nz0i5gWMLc8yFFelOMslES6mt/3ipfYEJJ8Fpd6czqapyEeobRKl9YQrnbDzyVvqgDcqtv30qoT2vLJ6mQhDIj9Y5r1vmOlFAu01VVqV9IQhlJvLffn0gok4xRi3i9sISzmrIbuV9ef6iREvp62iQk4VCVeZ+75XxfH+kiJVyq0pb3/G8l9L4i+tcTyme+fLXKVXod9/7Bq/TvjDRy1lpOakISXrxdvtv8REKp8/R4uquQhEcrQIW9Ki+en+Ik1K+LWz4/fW/W5nk1tLAqlYSlGaU08kBCGd7WrfIFJpQE1bNg/fhUfPjiPVqOu70nrEv4ltQUxk+oXytU3i/083Gx+WxvViV8b0yo62xcSImRUHctryjUiW6vcN5l21lJ0j+tXlNCuQ46egLWnyqvJ/XOujP3pwDZHnlqGTQlNN5FtZyVBr9r0y26Py490EpH5d3U2lPJrCGhuQDUNmBoQuOVfn72FEhndAet06Ffyn3VJnwx1ieTU3hCZ34itXpuCObL6J06C5vtuqozG+NQqWCqA6pTIQn1zHNzWloLXOUfxeMJ04kytxLmE5fb66vFLMuG9mKbcX/fGbuz1XmzedoPjV3q8mletwh45W2MGWJiJSy7jZBH/wGFhdHIuP5QdVhjQr3a87MJ74+F9f1ZWK3UrsTJDa4pYR4SMCjh/Vo5e5eAy89wO/+heohrSOib5/9AQrUgYa7P2MoDsDeiMYbXJlw3/GUibkKJ+OSu7xWWVQ1dqo6052A1CdcV6yPfTJiW95tSNQE7DJ2Sge+xeOoembgXszdhFvr9XfXXqasYJCal3Q694Hxaqkswn43q/hTya7sw+z13J2DHdGDLJ7vhch/8P5O43qblP0NV+dyPllnWH608CwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMD2G7pcMSwIJbI+AAAAAElFTkSuQmCC" alt="Logo"> <!-- Replace with your logo image -->
+        </div>
+        <div class="nav-container">
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="https://globalshop.lalisaofficial.com/">Shop</a>
+                <a href="https://www.lloud.co/">About</a>
+                <a href="https://www.instagram.com/lalalalisa_m/?hl=th">Artist</a>
+                <a href="https://x.com/wearelloud">News</a>
+            </nav>
+        </div>
+        <div class="Subscribe-Contact">
+            <input type="text" class="Subscribe" placeholder="Email address">
+            <a href="#" class="login-button">Sing Up</a>
+        </div>
+    </div>
+    <div class="title">
+        <h1>Welcome to LLOUD</h1>
+    </div>
+    <div class="container">
+        <div class="item">
+            <a href="https://youtu.be/UxXY_hR_wzo?si=B5Ec1sapaafmmt9q">
+                <img src="https://voguesg.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2024/08/18182532/banner-lisa-newwoman-fashion-680x1020.jpg" alt="Clothing">
+                <h3>LISA - NEW WOMAN feat. Rosalía</h3>
+                <p>New Single - NEW WOMEN <br>
+                    Pulling up fresh face brand new día.</p></a>
+        </div>
+        <div class="item">
+            <a href="https://www.lloud.co/rca">
+                <img src="https://voguehk.s3.amazonaws.com/media/2024/04/847f5f10-87fa-476d-ba2a-8581b78a36b4-1085x1280.jpeg" alt="Shoes">
+                <h3>LLOUD X RCA</h3>
+                <p>Blackpink's Lisa and Her Company LLoud Co. Partner With RCA Records.</p></a>
+        </div>
+        <div class="item">
+            <a href="https://www.lloud.co/louisvuitton-lisa">
+                <img src="https://static.wixstatic.com/media/62f912_130ad0523f9f46b6a3fbe24463f8ff2c~mv2.png/v1/fill/w_475,h_665,al_t,q_85,usm_0.66_1.00_0.01,enc_auto/62f912_130ad0523f9f46b6a3fbe24463f8ff2c~mv2.png" alt="Accessories">
+                <h3>LV X LISA</h3>
+                <p>
+                    LV x LISA
+                    Lisa is officially Louis Vuitton's Newest Brand Ambassador.</p></a>
+        </div>
+        <div class="item">
+            <a href="https://x.com/mtv/status/1834074711594082516?s=46&t=LsGPbDVjpmmgevIZlghFiA">
+                <img src="https://ellementhailand.com/wp-content/uploads/2024/09/LINE_ALBUM_1292567-BE_240912_6-819x1024.jpg" alt="Hat">
+                <h3>Video Music Awards</h3>
+                <p>LISA accept the VMA for Best K-Pop for the SECOND time?</p></a>
+        </div>
+    </div>
+</body>
+</html>
